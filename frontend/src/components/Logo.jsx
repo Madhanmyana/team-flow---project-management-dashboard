@@ -1,0 +1,41 @@
+export default function Logo({ size = 32 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="40" height="40" rx="10" fill="#0a0a0a" />
+      {/* Flow chevrons */}
+      <path
+        d="M12 14 L20 10 L28 14"
+        stroke="white"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 20 L20 16 L28 20"
+        stroke="white"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.7"
+      />
+      <path
+        d="M12 26 L20 22 L28 26"
+        stroke="white"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.4"
+      />
+      {/* Team dots */}
+      <circle cx="20" cy="30" r="2" fill="white" />
+      <circle cx="14" cy="30" r="1.5" fill="white" opacity="0.6" />
+      <circle cx="26" cy="30" r="1.5" fill="white" opacity="0.6" />
+    </svg>
+  );
+}
