@@ -17,7 +17,10 @@ app = FastAPI(title="TeamFlow API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, set to actual frontend URL
+    allow_origins=[
+        "http://localhost:5173", 
+        "https://team-flow-project-management-dashbo.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
