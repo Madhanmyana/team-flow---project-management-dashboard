@@ -9,13 +9,13 @@ graph TD
     Client[Web Browser / React] -->|HTTPS Requests| API[FastAPI Backend]
     API -->|AsyncPg| DB[(Supabase PostgreSQL)]
     
-    subgraph Frontend [Frontend (Vite + React)]
-        UI[Components: Dashboard, Projects, Auth]
-        API_Layer[api.js wrapper]
+    subgraph Frontend ["Frontend (Vite + React)"]
+        UI["Components: Dashboard, Projects, Auth"]
+        API_Layer["api.js wrapper"]
         UI --> API_Layer
     end
     
-    subgraph Backend [Backend (FastAPI)]
+    subgraph Backend ["Backend (FastAPI)"]
         Router[API Routers]
         Auth[JWT Authentication]
         Models[SQLAlchemy ORM]
