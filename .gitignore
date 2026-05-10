@@ -4,7 +4,7 @@
 
 # Backend
 backend/venv/
-backend/__pycache__/
+__pycache__/
 backend/.pytest_cache/
 backend/*.sqlite3
 
