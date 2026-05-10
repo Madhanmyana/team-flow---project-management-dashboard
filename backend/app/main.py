@@ -10,17 +10,21 @@ import logging
 from . import models, schemas, auth, dependencies
 from .schemas import ProjectMemberAdd, ProjectMemberResponse
 from .database import engine, get_db
+import os
 
 logging.basicConfig(level=logging.INFO)
 
 app = FastAPI(title="TeamFlow API")
 
+# CORS: always allow localhost + any production origins from env var
+cors_origins = ["http://localhost:5173"]
+extra_origins = os.getenv("CORS_ORIGINS", "")
+if extra_origins:
+    cors_origins.extend([o.strip() for o in extra_origins.split(",") if o.strip()])
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173", 
-        "https://team-flow-project-management-dashbo.vercel.app"
-    ],
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -30,6 +34,11 @@ app.add_middleware(
 async def startup():
     async with engine.begin() as conn:
         await conn.run_sync(models.Base.metadata.create_all)
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for Railway."""
+    return {"status": "ok"}
 
 # --- Auth Routes ---
 @app.post("/auth/signup", response_model=schemas.Token)
