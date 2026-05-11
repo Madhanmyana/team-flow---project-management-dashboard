@@ -33,6 +33,10 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--gray-50);
@@ -46,7 +50,7 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
 
 /* ── Typography ── */
-h1 { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.04em; color: var(--black); }
+h1 { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.04em; color: var(--black); word-break: break-word; overflow-wrap: break-word; }
 h2 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
 h3 { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
 
@@ -149,6 +153,7 @@ label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--gray-
 .main-content {
   flex: 1; margin-left: var(--sidebar-width);
   padding: 32px 40px; min-height: 100vh;
+  min-width: 0;
 }
 
 /* ── Sidebar ── */
@@ -799,6 +804,7 @@ tr:last-child td { border-bottom: none; }
   }
   .table-container {
     overflow-x: auto;
+    width: 100%;
   }
   .project-card-header {
     flex-wrap: wrap;
