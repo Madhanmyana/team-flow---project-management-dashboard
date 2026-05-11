@@ -787,6 +787,23 @@ tr:last-child td { border-bottom: none; }
     justify-content: center;
     width: 100%;
   }
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .project-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .table-container {
+    overflow-x: auto;
+  }
+  .project-card-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
   .main-content { margin-left: 0; padding: 16px; padding-bottom: 90px; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
