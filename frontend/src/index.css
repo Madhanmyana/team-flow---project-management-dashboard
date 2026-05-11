@@ -578,6 +578,21 @@ tr:last-child td { border-bottom: none; }
   margin-bottom: 20px;
 }
 
+/* ── Task Distribution ── */
+.task-dist-container {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.task-dist-labels {
+  display: flex;
+  gap: 24px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
 /* ── Bar Chart (Weekly Productivity) ── */
 .bar-chart-wrapper {
   display: flex;
@@ -716,8 +731,63 @@ tr:last-child td { border-bottom: none; }
   .content-grid-3 { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
-  .sidebar { display: none; }
-  .main-content { margin-left: 0; padding: 20px; }
+  .sidebar {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    flex-direction: row;
+    padding: 0;
+    border-right: none;
+    border-top: 1px solid var(--gray-200);
+    z-index: 1000;
+    background: var(--white);
+  }
+  .sidebar-logo, .sidebar-user { display: none; }
+  .sidebar-nav {
+    flex-direction: row;
+    flex: 3;
+    gap: 0;
+  }
+  .sidebar-link {
+    position: relative;
+    flex-direction: column;
+    padding: 8px 0;
+    margin: 0;
+    gap: 4px;
+    justify-content: center;
+    border-radius: 0;
+    font-size: 0.65rem;
+    flex: 1;
+  }
+  .sidebar-link:hover { transform: none; background: var(--gray-50); }
+  .sidebar-link.active {
+    box-shadow: none;
+    background: var(--gray-50);
+    border-top: 2px solid var(--black);
+  }
+  .sidebar > .sidebar-link {
+    flex: 1;
+    margin-bottom: 0 !important;
+  }
+  .invite-badge {
+    position: absolute;
+    top: 6px;
+    right: calc(50% - 22px);
+    margin: 0;
+    transform: scale(0.85);
+  }
+  .task-dist-container {
+    gap: 16px;
+    padding: 12px 16px;
+  }
+  .task-dist-labels {
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+  }
+  .main-content { margin-left: 0; padding: 16px; padding-bottom: 90px; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   .content-grid-3 { grid-template-columns: 1fr; }

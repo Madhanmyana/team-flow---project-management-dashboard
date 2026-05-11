@@ -154,8 +154,8 @@ export default function Dashboard({ onNavigate, isActive }) {
         <div className="table-header">
           <h3>Task Distribution</h3>
         </div>
-        <div style={{ padding: "16px 20px", display: "flex", alignItems: "center", gap: 30 }}>
-          <div style={{ display: "flex", height: 10, borderRadius: 5, overflow: "hidden", background: "#e5e5e5", flex: 1 }}>
+        <div className="task-dist-container">
+          <div style={{ display: "flex", height: 10, borderRadius: 5, overflow: "hidden", background: "#e5e5e5", flex: 1, minWidth: "200px" }}>
             {statusData.map((s) => (
               <div
                 key={s.label}
@@ -167,7 +167,7 @@ export default function Dashboard({ onNavigate, isActive }) {
               />
             ))}
           </div>
-          <div style={{ display: "flex", gap: 24, flexShrink: 0, flexWrap: "wrap" }}>
+          <div className="task-dist-labels">
             {statusData.map((s) => (
               <div key={s.label} style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <div style={{ width: 10, height: 10, borderRadius: 3, background: s.color }} />
